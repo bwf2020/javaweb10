@@ -24,12 +24,28 @@ function show(){
 <a href="test3">test3</a><br/>
 
 <form action="test1" method="get">
-
-	<input type="submit" value="提交"/>
+    <input name="a" type="text"><br/>
+    <input name="b" type="text"><br/>
+	<input type="submit" value="提交get"/>
 
 </form>
 
 <button onclick="show()" type="button">通过js访问</button>
+<br/>
+
+<form action="test1" method="get">
+
+  	<input name="a" type="text"><br/>
+    <input name="b" type="text"><br/>
+    <input name="aihao" type="checkbox" value="lq">篮球
+    <input name="aihao" type="checkbox" value="zq">足球
+    <input name="aihao" type="checkbox" value="pq">排球<br/>
+    中文:<input name="str" type="text"><br/>
+    
+	<input type="submit" value="提交post"/>
+
+</form>
+
 
 </body>
 </html>

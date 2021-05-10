@@ -22,6 +22,13 @@ public class Test2 extends HttpServlet{
 		// TODO Auto-generated method stub
 		System.out.println("test2 doget方法");
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("test2 dopost方法");
+	}
+	
+	
 	
 	
 	
