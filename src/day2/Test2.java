@@ -1,4 +1,4 @@
-package com;
+package day2;
 
 import java.io.IOException;
 

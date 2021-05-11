@@ -1,4 +1,4 @@
-package com;
+package day2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Test1 extends HttpServlet{
 	
+	private String encoding="";
 	
 	
 	public Test1() {
@@ -31,10 +33,22 @@ public class Test1 extends HttpServlet{
 	public void init() throws ServletException {
 
 
-			System.out.println("对象被初始化");
+			System.out.println("无参对象被初始化");
 		
 	}
 	
+	
+
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+
+
+		System.out.println("有参的初始化方法");
+		System.out.println(config.getInitParameter("encoding"));
+		this.encoding=config.getInitParameter("encoding");
+		
+	}
 
 
 
@@ -69,11 +83,11 @@ public class Test1 extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		System.out.println("默认编码："+req.getCharacterEncoding());
-		req.setCharacterEncoding("utf-8");
+		req.setCharacterEncoding(this.encoding);
 		System.out.println("修改后的编码："+req.getCharacterEncoding());
 		
-		resp.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;charset=utf-8");
+		resp.setCharacterEncoding(this.encoding);
+		resp.setContentType("text/html;charset="+this.encoding);
 
 		
 		System.out.println("test1的dopost方法.......");

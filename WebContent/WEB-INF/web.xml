@@ -14,15 +14,31 @@
 	</welcome-file-list>
 
 
+
+<context-param>
+
+<param-name>a</param-name>
+<param-value>bwf</param-value>
+
+</context-param>
+
+
 	<!-- 实例化servlert程序 后台程序配置 -->
 
 	<servlet>
 
 		<servlet-name>test1</servlet-name>
-		<servlet-class>com.Test1</servlet-class>
+		<servlet-class>day2.Test1</servlet-class>
+		<init-param>
+
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+
+		</init-param>
 		<load-on-startup>2</load-on-startup>
 
 	</servlet>
+
 
 	<!-- 请求映射 前端请求配置 -->
 	<servlet-mapping>
@@ -35,9 +51,9 @@
 	<servlet>
 
 		<servlet-name>test2</servlet-name>
-		<servlet-class>com.Test2</servlet-class>
+		<servlet-class>day2.Test2</servlet-class>
 		<load-on-startup>1</load-on-startup>
-		
+
 
 	</servlet>
 
@@ -45,7 +61,106 @@
 
 		<servlet-name>test2</servlet-name>
 		<url-pattern>/test2</url-pattern>
-		
+
 	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>test3-1</servlet-name>
+		<servlet-class>day3.Test1</servlet-class>
+		<init-param>
+			<param-name>a</param-name>
+			<param-value>A</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-1</servlet-name>
+		<url-pattern>/test3-1</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+
+		<servlet-name>test3-2</servlet-name>
+		<servlet-class>day3.Test2</servlet-class>
+		<init-param>
+			<param-name>a</param-name>
+			<param-value>A2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test3-2</servlet-name>
+		<url-pattern>/test3-2</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+
+		<servlet-name>test3-3</servlet-name>
+		<servlet-class>day3.Test3</servlet-class>
+		
+
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test3-3</servlet-name>
+		<url-pattern>/test3-3</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+		<servlet>
+
+		<servlet-name>test3-4</servlet-name>
+		<servlet-class>day3.Test4</servlet-class>
+		
+
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test3-4</servlet-name>
+		<url-pattern>/test3-4</url-pattern>
+	</servlet-mapping>
+	
+	
+			<servlet>
+
+		<servlet-name>test3-5</servlet-name>
+		<servlet-class>day3.Test5</servlet-class>
+		
+
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test3-5</servlet-name>
+		<url-pattern>/test3-5</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+				<servlet>
+
+		<servlet-name>test3-6</servlet-name>
+		<servlet-class>day3.Test6</servlet-class>
+		
+
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test3-6</servlet-name>
+		<url-pattern>/test3-6</url-pattern>
+	</servlet-mapping>
+	
+	
 
 </web-app>
