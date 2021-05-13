@@ -15,6 +15,20 @@
 
 
 
+<error-page>
+
+<error-code>404</error-code>
+<location>/404.jsp</location>
+
+</error-page>
+
+<error-page>
+
+<error-code>500</error-code>
+<location>/500.jsp</location>
+
+</error-page>
+
 	<context-param>
 
 		<param-name>a</param-name>
@@ -325,6 +339,20 @@
 		<servlet-name>userUI</servlet-name>
 		<url-pattern>/userUI</url-pattern>
 
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>test5-4</servlet-name>
+	<jsp-file>/day5/test4.jsp</jsp-file>
+	<init-param>
+	<param-name>encoding</param-name>
+	<param-value>GBK</param-value>
+	</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>test5-4</servlet-name>
+	<url-pattern>/day5/test4</url-pattern>
 	</servlet-mapping>
 
 
