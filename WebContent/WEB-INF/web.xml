@@ -357,4 +357,19 @@
 
 
 
+<servlet>
+
+		<servlet-name>test8</servlet-name>
+		<servlet-class>day6.Test1</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>test8</servlet-name>
+		<url-pattern>/day6/test8</url-pattern>
+
+	</servlet-mapping>
+
+
 </web-app>
