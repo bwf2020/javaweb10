@@ -12,5 +12,57 @@
 	
 	</select>
 	
+	<insert id="save">
+	
+	
+		insert into category(name) values('bwf')
+	
+	</insert>
+	
+	<insert id="save2">
+	
+	
+		insert into category(name) values(#{name})
+	
+	
+	</insert>
+	
+	<insert id="save3">
+	
+	
+		insert into category(id,name) values(#{id},#{name})
+	
+	
+	</insert>
+	
+	<delete id="del">
+	
+		<![CDATA[
+		
+			delete from category where id < #{id}
+		
+		]]>
+	
+	</delete>
+	
+	<insert id="save4">
+	
+	
+		 insert into category(name) values(#{name})
+	
+	
+	</insert>
+	
+	
+	<delete id="del2">
+	
+
+			delete from category where id=#{id}
+
+	
+	</delete>
+	
+	
+	
 
 </mapper>
