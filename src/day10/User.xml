@@ -5,16 +5,23 @@
 	
 <mapper namespace="day10.User">
 
-<resultMap type="" id="">
+
+<resultMap type="User" id="rm1" autoMapping="true">
 
 
-<association property=""></association>
+<association property="card" javaType="Card">
+
+	<result column="cid" property="id"/>
+	<result column="num" property="num"/>
+
+</association>
+
 
 </resultMap>
 
-<select id="find1" resultType="User">
+<select id="find1" resultMap="rm1">
 
-	SELECT a.*,b.*
+	SELECT a.*,b.id as cid,b.num
 	FROM USER AS a
 	LEFT JOIN card AS b
 	ON a.id=b.uid

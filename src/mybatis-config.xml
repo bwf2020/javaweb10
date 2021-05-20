@@ -10,7 +10,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <typeAlias type="day9.Category" alias="Category"/>
 <typeAlias type="day10.User" alias="User"/>
-
+<typeAlias type="day10.Card" alias="Card"/>
+<typeAlias type="day10.Product" alias="Product"/>
 
 
 </typeAliases>
@@ -44,6 +45,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mapper resource="day10/A.xml"/>
 	<mapper resource="day10/B.xml"/>
 	<mapper resource="day10/User.xml"/>
+	<mapper resource="day10/Product.xml"/>
 	
 </mappers>
 

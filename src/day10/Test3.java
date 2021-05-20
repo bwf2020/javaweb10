@@ -13,7 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import day9.Category;
 
-public class Test2 {
+public class Test3 {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws  Exception {
@@ -30,13 +30,26 @@ public class Test2 {
 		//是程序跟数据库之间的一个会话
 		SqlSession session= factory.openSession();
 		
-		User user= session.selectOne("day10.User.find1", "lisi");
-		System.out.println(user);
-		System.out.println(user.getId());
-		System.out.println(user.getName());
-		System.out.println(user.getCard());
-		System.out.println(user.getCard().getId());
-		System.out.println(user.getCard().getNum());
+		Category c1= session.selectOne("day9.Category.findCP", 1);
+	
+		System.out.println(c1);
+		
+		System.out.println(c1.getId());
+		System.out.println(c1.getName());
+
+		System.out.println(c1.getProducts());
+		
+		
+		System.out.println("==========多对一============");
+		
+		List<Product> list1= session.selectList("day10.Product.find1");
+		
+		System.out.println(list1);
+		
+		for (Product product : list1) {
+			System.out.println(product.getName()+"类别："+product.getCategory().getName());
+		}
+		
 		
 		session.commit();
 		session.close();

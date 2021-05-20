@@ -97,6 +97,32 @@
 	
 	</select>
 	
+	<resultMap type="Category" id="rm2" autoMapping="true">
+	
+
+		<id column="id" property="id"/>
+
+	
+		<collection property="products" ofType="Product">
+		
+			<result column="pid" property="id"/>
+			<result column="pname" property="name"/>
+		
+		</collection>
+	
+	</resultMap>
+	
+	
+	<select id="findCP" resultMap="rm2">
+	
+	
+		SELECT a.*,b.id pid,b.name pname,b.price
+		FROM category a
+		LEFT JOIN product b
+		ON a.id=b.cid
+		where a.id=#{id}
+	
+	</select>
 	
 	
 

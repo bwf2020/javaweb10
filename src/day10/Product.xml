@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="day10.Product">
+
+<resultMap type="Product" id="rm1" autoMapping="true">
+
+
+	<id column="id" property="id"/>
+
+	<association property="category" javaType="Category">
+	
+		<result column="cid" property="id"/>
+		<result column="cname" property="name"/>
+		
+	
+	</association>
+
+
+
+
+</resultMap>
+
+	<select id="find1" resultMap="rm1">
+	
+		<![CDATA[
+		
+
+		SELECT a.*,b.id cid,b.name cname
+		FROM product a
+		LEFT JOIN category b
+		ON a.cid=b.id
+		WHERE a.id <= 3
+		
+		]]>
+	
+		
+	
+	</select>
+
+</mapper>
