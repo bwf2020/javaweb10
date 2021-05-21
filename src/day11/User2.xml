@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="day11.User2">
+
+<cache />
+
+	<select id="findAll" resultType="User2">
+	
+	
+		select * from user where 1=1
+	
+	</select>
+	
+	<select id="findById" resultType="User2">
+	
+	
+		select * from user where id=#{id}
+	
+	</select>
+	
+	<select id="findByName" resultType="User2">
+	
+	
+		select * from user where name=#{name}
+	
+	</select>
+	
+		<select id="findBySex" resultType="User2">
+	
+	
+		select * from user where sex=#{sex}
+	
+	</select>
+	
+	
+	<select id="findByNameAndSex" resultType="User2">
+	
+	
+		select * from user where name=#{name} and sex=#{sex}
+	
+	</select>
+	
+	
+	
+	<select id="findBy" resultType="User2">
+	
+	
+		select * 
+		from user
+		where 1=1
+		
+		<if test="name!=null">
+		
+			and name=#{name}
+		
+		</if>
+		
+		<if test="sex!=null">
+		
+			and sex=#{sex}
+		
+		</if>
+	
+	</select>
+	
+	
+	
+		<select id="findBy2" resultType="User2">
+	
+	
+		select * 
+		from user
+		
+		<where>
+			
+			<if test="name!=null">
+			
+				and name=#{name}
+			
+			</if>
+			
+			<if test="sex!=null">
+			
+				and sex=#{sex}
+			
+			</if>
+		
+		</where>
+		
+		
+	
+	</select>
+	
+	<update id="update">
+	
+		
+			update user
+			
+			<set>
+			
+			<if test="name!=null">
+			
+				 name=#{name},
+			
+			</if>
+			
+			<if test="sex!=null">
+			
+				 sex=#{sex},
+			
+			</if>
+			
+			</set> 
+		
+			
+			where id=#{id}
+	
+	</update>
+	
+	
+	
+	<select id="findBy3" resultType="User2">
+	
+	
+		select * 
+		from user
+		
+		
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="name!=null">
+			
+				and name=#{name}
+			
+			</if>
+			
+			<if test="sex!=null">
+			
+				and sex=#{sex}
+			
+			</if>
+		
+		</trim>
+		
+		
+	
+	</select>
+	
+	
+	<select id="findIn" resultType="User2">
+	
+		select * from user
+		where id in
+
+
+			<foreach open="(" collection="collection" item="id" separator="," close=")">
+			
+			
+				#{id}
+			
+			
+			</foreach>
+	
+
+		
+	
+	</select>
+	
+	
+	<select id="findById2" resultType="User2" useCache="true">
+	
+	
+		select * from user where id=#{id}
+	
+	</select>
+	
+	
+	<select id="findIn2" resultType="User2">
+	
+		select * from user
+		where id in
+
+
+			<foreach open="(" collection="collection" item="id" separator="," close=")">
+			
+			
+				#{id}
+			
+			
+			</foreach>
+	
+
+		
+	
+	</select>
+	
+	
+
+
+</mapper>

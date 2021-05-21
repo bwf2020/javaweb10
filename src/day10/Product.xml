@@ -39,5 +39,21 @@
 		
 	
 	</select>
+	
+	
+	<select id="find2"  resultType="Product">
+	
+		<![CDATA[
+		
+
+		SELECT *
+		FROM product 
+		WHERE id = #{id}
+		
+		]]>
+	
+		
+	
+	</select>
 
 </mapper>

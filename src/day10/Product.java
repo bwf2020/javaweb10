@@ -1,5 +1,8 @@
 package day10;
 
+import java.util.List;
+
+import day11.OrdersItem;
 import day9.Category;
 
 public class Product {
@@ -13,6 +16,9 @@ public class Product {
 	
 	//建立关系 多对一的关系
 	private Category category;
+	
+	//建立关系
+	private List<OrdersItem> ordersItemList;
 	
 	
 	

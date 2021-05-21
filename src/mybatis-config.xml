@@ -6,12 +6,22 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <configuration>
 
+<settings>
+
+<setting name="cacheEnabled" value="true"/>
+
+
+</settings>
+
 <typeAliases>
 
 <typeAlias type="day9.Category" alias="Category"/>
 <typeAlias type="day10.User" alias="User"/>
 <typeAlias type="day10.Card" alias="Card"/>
 <typeAlias type="day10.Product" alias="Product"/>
+<typeAlias type="day11.Orders" alias="Orders"/>
+<typeAlias type="day11.OrdersItem" alias="OrdersItem"/>
+<typeAlias type="day11.User2" alias="User2"/>
 
 
 </typeAliases>
@@ -46,6 +56,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mapper resource="day10/B.xml"/>
 	<mapper resource="day10/User.xml"/>
 	<mapper resource="day10/Product.xml"/>
+	
+	<mapper resource="day10/Orders.xml"/>
+	<mapper resource="day10/OrdersItem.xml"/>
+	
+	<mapper resource="day11/User2.xml"/>
+
 	
 </mappers>
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.bwf.Orders">
+
+
+<resultMap type="Orders" id="rm1">
+
+	<id column="oid" property="id"/>
+	<result column="code" property="code"/>
+	
+	<collection property="ordersItemList" ofType="OrdersItem">
+	
+		<id column="oiid" property="id"/>
+		
+		<result column="num" property="num"/>
+		
+		<association property="product" javaType="Product">
+		
+		
+		<id column="pid" property="id"/>
+		<result column="pname" property="name"/>
+		<result column="price" property="price"/>	
+		
+		</association>
+	
+	
+	</collection>
+
+</resultMap>
+
+<select id="find1" resultMap="rm1">
+
+	SELECT a.id oid,a.code,b.id oiid,b.num,c.id pid,c.name pname,c.price
+	FROM orders a
+	LEFT JOIN orders_item b
+	ON a.id=b.oid
+	LEFT JOIN product c
+	ON b.pid=c.id
+	WHERE a.id=#{id}
+	
+
+</select>
+
+
+
+</mapper>
