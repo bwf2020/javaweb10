@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="day12.User">
+
+
+	<resultMap type="day12.User" id="rm1" autoMapping="true">
+
+		<id column="id" property="id" />
+
+		<collection property="telList" ofType="day12.Tel"
+			column="id" select="day12.Tel.find1" autoMapping="true" fetchType="eager"></collection>
+
+
+	</resultMap>
+
+
+	<select id="find1" resultMap="rm1">
+
+
+		select *
+		from user
+		where id=#{id}
+
+
+	</select>
+	
+	
+	
+	<resultMap type="day12.User" id="rm2" autoMapping="true">
+
+		<id column="id" property="id" />
+
+		<collection property="telList" ofType="day12.Tel" autoMapping="true">
+		
+		</collection>
+
+
+	</resultMap>
+	
+	
+   <select id="find2" resultMap="rm2">
+
+
+		select *
+		from user a
+		left join tel b
+		on a.id=b.uid
+		where a.id=#{id}
+
+
+	</select>
+
+
+
+
+</mapper>
