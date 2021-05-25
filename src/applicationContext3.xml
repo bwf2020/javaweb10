@@ -3,7 +3,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
     xsi:schemaLocation="
@@ -13,13 +12,28 @@
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context-3.2.xsd
    
-   http://www.springframework.org/schema/aop
-   http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
    
    ">
    
+<context:annotation-config/>
+
+   <bean name="user1" class="day13.User">
    
-  <context:component-scan base-package="day13"></context:component-scan>
- <aop:aspectj-autoproxy/>
+   		<property name="dog">
+   			
+   			<bean class="day13.Dog"></bean>
+   		
+   		</property>
+   
+   </bean>
+   
+   
+   
+   
+   <bean name="dog1" class="day13.Dog"></bean>
+   
+   <bean name="user2" class="day13.User"></bean>
+ 
+ 
      
  </beans>

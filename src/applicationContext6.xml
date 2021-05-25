@@ -19,7 +19,27 @@
    ">
    
    
-  <context:component-scan base-package="day13"></context:component-scan>
- <aop:aspectj-autoproxy/>
+   <bean name="userService" class="day13.UserService"></bean>
+   
+   <bean name="myAspect" class="day13.MyAspect"></bean>
+   
+  
+   <aop:config>
+   
+   
+   <aop:pointcut id="pointCut" expression="execution(* day13.UserService.*(..))" />
+   
+   <aop:aspect id="aspect" ref="myAspect">
+  <!--  	<aop:before method="before" pointcut-ref="pointCut"/>
+   	<aop:after method="after"  pointcut-ref="pointCut"/> -->
+   	
+   	<aop:around method="log" pointcut-ref="pointCut"/>
+   	
+   </aop:aspect>
+   
+   
+   
+   
+   </aop:config>
      
  </beans>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+   
+   
+
+   <bean name="user1" class="day12.User">
+   
+   	<constructor-arg index="0" value="1"></constructor-arg>
+   	<constructor-arg index="1" value="zhangsan"></constructor-arg>
+   
+   </bean>
+   
+   <bean name="user2" class="day12.User">
+   
+   	<property name="id" value="2"></property>
+   	<property name="name" value="lisi"></property>
+   
+   </bean>
+ 
+ 
+ <bean name="f1" class="day12.FaDongJi">
+ 
+ 	<constructor-arg index="0" value="三菱SL001"></constructor-arg>
+ 
+ </bean>
+ 
+ <bean name="f2" class="day12.FaDongJi2">
+ 
+ 	<constructor-arg index="0" value="奔驰BC568"></constructor-arg>
+ 
+ </bean>
+ 
+ <bean name="l1" class="day12.LunZi">
+ 
+ 	<property name="name" value="马牌"></property>
+ 
+ </bean>
+ 
+ <bean name="car" class="day12.Car">
+ 	
+ 	<property name="f1" ref="f2"></property>
+ 	<property name="l1" ref="l1"></property>
+ 
+ </bean>
+ 
+ 
+     
+ </beans>
