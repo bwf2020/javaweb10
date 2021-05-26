@@ -4,9 +4,10 @@
 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-    xsi:schemaLocation="
+	xsi:schemaLocation="
    http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
    
@@ -16,10 +17,73 @@
    http://www.springframework.org/schema/aop
    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
    
+   http://www.springframework.org/schema/tx
+   http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+   
    ">
    
-   
-  <context:component-scan base-package="day13"></context:component-scan>
- <aop:aspectj-autoproxy/>
-     
- </beans>
+   <context:component-scan base-package="day14"></context:component-scan>
+
+	<!-- 配置数据源 -->
+
+	<bean name="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+			
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/java10?characterEncoding=UTF-8"></property>
+			
+		<property name="username" value="root"></property>
+		
+		<property name="password" value="123456"></property>
+	</bean>
+
+
+<!-- 配置sqlsession -->
+	<bean name="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+	
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+	
+	</bean>
+	
+	
+	<!-- 扫描mapper接口层 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		
+		<property name="basePackage" value="day14"></property>
+	
+	</bean>
+	
+	
+	<!-- 定义事务管理 -->
+	<bean name="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	
+		<property name="dataSource" ref="dataSource"></property>
+		
+	</bean>
+	
+	<!-- 配置事务通知 -->
+	
+	<tx:advice id="advice" transaction-manager="txManager">
+	
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	
+	</tx:advice>
+	
+	<!-- 配置切面 -->
+	
+	<aop:config>
+	
+		<aop:pointcut expression="execution(* day14.UserService.*(..))" id="pc"/>
+		<aop:advisor advice-ref="advice" pointcut-ref="pc"/>
+	
+	</aop:config>
+	
+	
+		
+</beans>

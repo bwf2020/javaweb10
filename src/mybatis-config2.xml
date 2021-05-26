@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<settings>
+
+<setting name="cacheEnabled" value="true"/>
+
+<setting name="lazyLoadingEnabled" value="true"/>
+<setting name="aggressiveLazyLoading" value="false"/>
+
+
+</settings>
+
+<typeAliases>
+
+<typeAlias type="day9.Category" alias="Category"/>
+<typeAlias type="day10.User" alias="User"/>
+<typeAlias type="day10.Card" alias="Card"/>
+<typeAlias type="day10.Product" alias="Product"/>
+<typeAlias type="day11.Orders" alias="Orders"/>
+<typeAlias type="day11.OrdersItem" alias="OrdersItem"/>
+<typeAlias type="day11.User2" alias="User2"/>
+
+
+</typeAliases>
+
+<environments default="e1">
+
+
+	<environment id="e1">
+	
+		<transactionManager type="JDBC"></transactionManager>
+		<dataSource type="POOLED">
+			
+			<property name="driver" value="com.mysql.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://localhost:3306/java10?characterEncoding=UTF-8"/>
+			<property name="username" value="root"/>
+			<property name="password" value="123456"/>
+		
+		</dataSource>
+	
+	</environment>
+	
+
+
+
+</environments>
+
+<mappers>
+
+	<mapper resource="day9/Category.xml"/>
+	<mapper resource="day9/Category2.xml"/>
+	<mapper resource="day10/A.xml"/>
+	<mapper resource="day10/B.xml"/>
+	<mapper resource="day10/User.xml"/>
+	<mapper resource="day10/Product.xml"/>
+	
+	<mapper resource="day10/Orders.xml"/>
+	<mapper resource="day10/OrdersItem.xml"/>
+	
+	<mapper resource="day11/User2.xml"/>
+	
+	<mapper resource="day12/User.xml"/>
+	<mapper resource="day12/Tel.xml"/>
+
+	
+</mappers>
+
+
+</configuration>
