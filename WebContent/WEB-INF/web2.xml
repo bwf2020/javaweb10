@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>javaweb10</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+
+
+<error-page>
+
+<error-code>404</error-code>
+<location>/404.jsp</location>
+
+</error-page>
+
+<error-page>
+
+<error-code>500</error-code>
+<location>/500.jsp</location>
+
+</error-page>
+
+	<context-param>
+
+		<param-name>a</param-name>
+		<param-value>bwf</param-value>
+
+	</context-param>
+
+
+	<!-- 实例化servlert程序 后台程序配置 -->
+
+	<servlet>
+
+		<servlet-name>test1</servlet-name>
+		<servlet-class>day2.Test1</servlet-class>
+		<init-param>
+
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+
+	</servlet>
+
+
+	<!-- 请求映射 前端请求配置 -->
+	<servlet-mapping>
+		<servlet-name>test1</servlet-name>
+		<url-pattern>/test1</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>test2</servlet-name>
+		<servlet-class>day2.Test2</servlet-class>
+		<load-on-startup>1</load-on-startup>
+
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>test2</servlet-name>
+		<url-pattern>/test2</url-pattern>
+
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>test3-1</servlet-name>
+		<servlet-class>day3.Test1</servlet-class>
+		<init-param>
+			<param-name>a</param-name>
+			<param-value>A</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-1</servlet-name>
+		<url-pattern>/test3-1</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+
+		<servlet-name>test3-2</servlet-name>
+		<servlet-class>day3.Test2</servlet-class>
+		<init-param>
+			<param-name>a</param-name>
+			<param-value>A2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-2</servlet-name>
+		<url-pattern>/test3-2</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>test3-3</servlet-name>
+		<servlet-class>day3.Test3</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-3</servlet-name>
+		<url-pattern>/test3-3</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>test3-4</servlet-name>
+		<servlet-class>day3.Test4</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-4</servlet-name>
+		<url-pattern>/test3-4</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+
+		<servlet-name>test3-5</servlet-name>
+		<servlet-class>day3.Test5</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-5</servlet-name>
+		<url-pattern>/test3-5</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+
+		<servlet-name>test3-6</servlet-name>
+		<servlet-class>day3.Test6</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test3-6</servlet-name>
+		<url-pattern>/test3-6</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>test4-1</servlet-name>
+		<servlet-class>day4.Test1</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test4-1</servlet-name>
+		<url-pattern>/a/test1</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>test4-1</servlet-name>
+		<url-pattern>/b/test1</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>test4-1</servlet-name>
+		<url-pattern>/a/b/test1</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!-- <filter> <filter-name>filter1</filter-name> <filter-class>day4.Test2</filter-class> 
+		</filter> <filter-mapping> <filter-name>filter1</filter-name> <url-pattern>/*</url-pattern> 
+		</filter-mapping> -->
+
+
+
+	<servlet>
+
+		<servlet-name>test4-3</servlet-name>
+		<servlet-class>day4.Test3</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test4-3</servlet-name>
+		<url-pattern>/day4/test3</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+
+		<servlet-name>test4-4</servlet-name>
+		<servlet-class>day4.Test4</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test4-4</servlet-name>
+		<url-pattern>/day4/test4</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+
+		<servlet-name>test4-5</servlet-name>
+		<servlet-class>day4.Test5</servlet-class>
+
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test4-5</servlet-name>
+		<url-pattern>/day4/test5</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<listener-class>day4.Test6</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>day4.Test7</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>day4.Test8</listener-class>
+	</listener>
+
+
+	<filter>
+
+
+		<filter-name>f2</filter-name>
+		<filter-class>day4.Filter2</filter-class>
+
+	</filter>
+
+
+	<filter>
+
+
+		<filter-name>f1</filter-name>
+		<filter-class>day4.Filter1</filter-class>
+
+	</filter>
+
+
+
+
+	<filter-mapping>
+
+		<filter-name>f2</filter-name>
+		<url-pattern>/*</url-pattern>
+
+	</filter-mapping>
+
+	<filter-mapping>
+
+		<filter-name>f1</filter-name>
+		<url-pattern>/*</url-pattern>
+
+	</filter-mapping>
+
+	<servlet>
+
+		<servlet-name>regUI</servlet-name>
+		<servlet-class>day4.RegUI</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>regUI</servlet-name>
+		<url-pattern>/regUI</url-pattern>
+
+	</servlet-mapping>
+
+
+	<servlet>
+
+		<servlet-name>reg</servlet-name>
+		<servlet-class>day4.Reg</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>reg</servlet-name>
+		<url-pattern>/reg</url-pattern>
+
+	</servlet-mapping>
+	
+	
+	<servlet>
+
+		<servlet-name>userUI</servlet-name>
+		<servlet-class>day4.UserUI</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>userUI</servlet-name>
+		<url-pattern>/userUI</url-pattern>
+
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>test5-4</servlet-name>
+	<jsp-file>/day5/test4.jsp</jsp-file>
+	<init-param>
+	<param-name>encoding</param-name>
+	<param-value>GBK</param-value>
+	</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>test5-4</servlet-name>
+	<url-pattern>/day5/test4</url-pattern>
+	</servlet-mapping>
+
+
+
+<servlet>
+
+		<servlet-name>test8</servlet-name>
+		<servlet-class>day6.Test1</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>test8</servlet-name>
+		<url-pattern>/day6/test8</url-pattern>
+
+	</servlet-mapping>
+
+
+</web-app>

@@ -11,5 +11,29 @@
 	
 	</insert>
 	
+	<select id="findBy" resultType="day14.User">
+	
+		select * 
+		from user
+		where name=#{name} and sex=#{sex}
+	
+	</select>
+	
+	<select id="findById" resultType="day14.User">
+	
+		select * 
+		from user
+		where id=${id}
+	
+	</select>
+	
+	<select id="findByName" resultType="day14.User">
+	
+		select * 
+		from user
+		where name=${name}
+	
+	</select>
+	
 
 </mapper>

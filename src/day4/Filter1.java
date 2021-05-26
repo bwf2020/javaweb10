@@ -14,7 +14,7 @@ public class Filter1 implements Filter {
 	
 	public Filter1() {
 		
-		System.out.println("过滤器1被实例化............................");
+		System.out.println("过滤器1111111被实例化............................");
 		
 	}
 	

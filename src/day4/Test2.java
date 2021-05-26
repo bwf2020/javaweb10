@@ -13,7 +13,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 
 
-@WebFilter(urlPatterns="/*",initParams=@WebInitParam(name="t2",value="utf-8"))
 public class Test2 implements Filter {
 	
 	
