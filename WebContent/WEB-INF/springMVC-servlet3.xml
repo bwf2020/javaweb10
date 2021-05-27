@@ -2,26 +2,17 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	
+
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
    
- 	http://www.springframework.org/schema/context
-   http://www.springframework.org/schema/context/spring-context-3.2.xsd
-   
-   http://www.springframework.org/schema/mvc
-   http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+
    
    ">
    
-   <context:component-scan base-package="day15"></context:component-scan>
-   
-   <mvc:annotation-driven />
    
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
    
@@ -29,6 +20,27 @@
    	<property name="suffix" value=".jsp"></property>
    </bean>
    
+   <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
    
+   <property name="mappings">
+   
+   		<props>
+   		
+   			<prop key="/test1.do">test1</prop>
+   			<prop key="/test2.do">test2</prop>
+   		
+   		</props>
+   
+   </property>
+   
+   </bean>
+   
+   
+  <!--  <bean name="/test1.do" class="day15.Test1Controller"></bean>-->
+  
+  <bean name="test1"  class="day15.Test1Controller"></bean>
+  <bean name="test2"  class="day15.Test2Controller"></bean>
+  
+  
    
    </beans>

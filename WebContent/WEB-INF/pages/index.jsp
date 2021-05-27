@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-springmvc index  name:${name } 
+pages中的页面 index  name:${name }
 </body>
 </html>
