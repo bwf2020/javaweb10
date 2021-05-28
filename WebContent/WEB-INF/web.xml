@@ -19,5 +19,23 @@
 		<servlet-name>springMVC</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+	
+	
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+        <description>字符集编码</description>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+	</filter>
+	
+	<filter-mapping>
+	
+	<filter-name>encoding</filter-name>
+	<url-pattern>*.do</url-pattern>
+	
+	</filter-mapping>
 
 </web-app>

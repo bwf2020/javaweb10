@@ -36,6 +36,31 @@
 		});
 		
 	}
+	
+	
+	
+	
+	
+function show2(){
+		
+		
+		$.ajax({
+			
+			url:'day16/test5.do',
+			type:'post',
+			data:JSON.stringify({name:$('#name').val()}),
+			contentType:"application/json",
+			success:function(data){
+				
+
+				alert("来自后台的数据："+data.name)
+				
+			}
+			
+			
+		});
+		
+	}
 
 </script>
 </head>
@@ -43,7 +68,11 @@
 
 <input id="name"/>
 <br/>
-<button onclick="show()">请求后台数据</button>
+<button onclick="show()">请求servlert后台数据</button>
+
+<br/>
+<button onclick="show2()">请求springmvc后台数据</button>
+
 
 
 

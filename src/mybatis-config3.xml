@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <mappers>
 	
-	<mapper resource="com/entity/User.xml"/>
+	<mapper resource="day14/User.xml"/>
 
 </mappers>
 
