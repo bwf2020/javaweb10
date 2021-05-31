@@ -10,48 +10,59 @@
 
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
    
    http://www.springframework.org/schema/context
-   http://www.springframework.org/schema/context/spring-context-3.2.xsd
+   http://www.springframework.org/schema/context/spring-context-4.3.xsd
    
    http://www.springframework.org/schema/mvc
-   http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+   http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
    
    http://www.springframework.org/schema/tx
-   http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
    
    ">
+   
+   
+   
 
 
 	<mvc:annotation-driven/>
 	
 	<!-- spring 扫描 -->
-	<context:component-scan base-package="day16"></context:component-scan>
+	<context:component-scan base-package="day17"></context:component-scan>
 
+	<!-- 视图解决方案 -->
 
-	<bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
-
-
-	<!-- <mvc:interceptors>
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
 	
 	
-		<bean class="day16.MyInterceptor"></bean>
-		<bean class="day16.EncodingInterceptor">
-			
-			<property name="encoding" value="utf-8"></property>
+	</bean>	 -->
+	
+	<bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+	
+		<property name="prefix" value="/WEB-INF/templates/"></property>
+		<property name="suffix" value=".html"></property>
+		<property name="templateMode" value="HTML5" />
+		<property name="cacheable" value="false"></property>
+		<property name="characterEncoding" value="utf-8"></property>
 		
-		</bean>
-		
-		<mvc:interceptor>
-			
-			<mvc:mapping path="/a/*"/>
-			<mvc:exclude-mapping path="/test1.do"/>
-			<bean class="day16.MyInterceptor"></bean> 
-			
-
-		</mvc:interceptor>
+	</bean>
 	
-	</mvc:interceptors>
- -->
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+	
+		<property name="templateResolver" ref="templateResolver"></property>
+	
+	</bean>
+	
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+	
+		<property name="templateEngine" ref="templateEngine"></property>
+		<property name="characterEncoding" value="utf-8"></property>
+	
+	</bean>
+	
 </beans>

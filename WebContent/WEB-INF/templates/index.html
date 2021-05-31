@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<link th:href="@{/my.css}" rel="stylesheet"/>
+
+<script type="text/javascript" th:inline="javascript">
+
+
+	var a=[[${a}]];
+	
+	var str=[[${str}]];
+	alert(str)
+
+</script>
+
+
+<style>
+div{
+
+color:red;
+
+}
+</style>
+</head>
+<body>
+
+thymeleaf3
+<br/>
+
+
+<div th:text="${name}">
+name
+</div>
+
+<span th:text="${a+b}"></span><br/>
+<span th:text="${a}+${b}"></span><br/>
+<span th:text="${name}+${sex}"></span><br/>
+<span th:text="${name+sex}"></span><br/>
+<span th:text="|${name} ${sex} zhangsan-lisi|"></span><br/>
+<span th:text="zhangsan"></span><br/>
+<span th:text="${'zhangsan'}"></span><br/>
+
+<span th:text="!${c}"></span><br/>
+<span th:text="${!c}"></span><br/>
+
+
+<div th:utext="${name}"></div>
+
+<span th:text="${num}"></span><br/>
+<span th:text="${date}"></span><br/>
+
+<div th:text="${#dates.format(date,'yyyy-MM-dd HH:mm:ss')}"></div>
+
+<div th:text="${#numbers.formatDecimal(num,0, 'COMMA', 3,'POINT')}"></div>
+
+
+<div th:text="${#strings.substring(str, 4,6)}"></div>
+
+
+
+
+<span th:text="${user.id}"></span><br/>
+<span th:text="${user['name']}"></span><br/>
+
+
+<div th:text="${session}"></div>
+<div th:text="${session.d}"></div>
+
+<span th:text="${array[0]}"></span><br/>
+<span th:text="${array[1]}"></span><br/>
+
+<span th:text="${array.length}"></span><br/>
+
+<span th:text="${#arrays.length(array)}"></span><br/>
+
+
+<ul>
+
+
+<li th:each="str,s:${array}" th:text="|${str} ${s.even}  ${s.odd}|"></li>
+
+</ul>
+
+
+<span th:if="true">显示</span><br/>
+<span th:if="false">不显示</span><br/>
+
+<span th:unless="true">不显示</span><br/>
+<span th:unless="false">显示</span><br/>
+
+
+<ul>
+
+<li th:each="str,s:${array}" th:text="${str}" th:style="${s.odd}?'color:red':''"></li>
+
+</ul>
+
+
+<div th:object="${user}">
+<span th:text="*{id}"></span><br/>
+<span th:text="*{name}"></span><br/>
+</div>
+
+
+<span th:text="${list}"></span><br/>
+
+<ol>
+
+<li th:each="s:${list}" th:text="${s}"></li>
+
+</ol>
+
+<span th:text="${map}"></span><br/>
+
+<span th:text="${map.a}"></span><br/>
+
+<span th:each="v,s:${map}" th:text="|${v.key} ${v.value}|"></span>
+
+
+<a th:href="@{reg.html(id=1,name=bwf)}">注册页面</a>
+<a href="reg.html?id=1&amp;name=bwf">注册页面</a>
+
+
+<input th:value="${name}"/><br/>
+
+
+<input type="radio" th:checked="${c}"/>是
+<input type="radio" th:checked="!${c}"/>否
+
+<br/>
+<br/>
+
+
+<span th:text="${a}">数据1</span><br/>
+<span th:text="${b}">数据2</span><br/>
+<span th:text="${c}">数据3</span><br/>
+
+<div th:inline="text">
+
+<span>[[${a}]]</span>
+<span>[[${b}]]</span>
+<span>[[${c}]]</span>
+
+</div>
+
+</body>
+</html>
